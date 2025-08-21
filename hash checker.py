@@ -3,7 +3,7 @@ import hashlib
 from bs4 import BeautifulSoup
 
 # Website you want to check
-URL = "https://time.is/"
+URL = "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=1000&count=1"
 
 def get_page_hash(url):
     response = requests.get(url)          # download the webpage
@@ -23,11 +23,18 @@ file = open("hash.txt", "w")
 file.write(hash1)
 # Always close the file to save changes
 file.close()
+with open("hash.txt","r") as file:
+    hash1=file.read().strip()
+hash2=get_page_hash(URL)
+if hash1==hash2:
+    print("no change")
+else:
+    print("change detected")
 
 
 print("website:",URL)
 print("hash:",hash1)
-print("hash2:")
+print("hash2:",hash2)
 
 # if hash1==hash2:
 #     print("no change")
