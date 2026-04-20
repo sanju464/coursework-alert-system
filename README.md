@@ -1,62 +1,109 @@
-coursework-alert-system
+# 📡 Coursework Alert System – Automated Assignment Monitoring
 
-Never miss a deadline again.
+## 🚀 Overview
 
-An automated tool that monitors ETLab for new assignments and tutorials, detects updates using hashing, and instantly notifies students via email or Google Calendar.
+Coursework Alert System is an automated tool that monitors academic platforms (e.g., ETLab) for new assignments or updates and sends notifications to users.
 
-🚀 Features
+It ensures students never miss important coursework deadlines.
 
-🔍 Smart change detection — monitors ETLab assignment/tutorial pages using hashing, only triggers when something actually changes
-📧 Instant email alerts — sends notifications to individual students or group emails
-📅 Google Calendar integration — adds deadlines directly to your calendar automatically
-⏰ Never miss a deadline — runs in the background and catches updates as soon as they're posted
-👥 Group support — notify an entire class or group at once
+---
 
+## 🎯 Problem
 
-🎯 Who is this for?
-Students at colleges using ETLab (common in Kerala engineering colleges) who want to stop manually checking for new assignments every day.
+Students often miss assignment updates due to:
 
-🛠️ How it Works
+* Manual checking of portals
+* Lack of real-time notifications
+* Frequent updates across multiple subjects
 
-The tool periodically fetches your ETLab assignment/tutorial page
-It computes a hash of the page content
-If the hash changes (new assignment posted), it triggers an alert
-You get an email or Google Calendar notification instantly
+---
 
+## ⚙️ System Design
 
-⚙️ Setup
-Requirements
+```text
+Platform (ETLab)
+      ↓
+Data Fetcher (scraper / API)
+      ↓
+Change Detection (hash comparison)
+      ↓
+Update Trigger
+      ↓
+Notification System
+  - Email alerts
+  - Google Calendar integration
+```
 
-Python 3.x
-Google account (for Calendar integration)
-ETLab account
+---
 
-Installation
-bash# Clone the repo
-git clone https://github.com/sanju464/coursework-alert-system.git
-cd coursework-alert-system
+## 🧠 Key Features
 
-# Install dependencies
-pip install -r requirements.txt
-Configuration
+### 🔹 Automated Monitoring
 
-Add your ETLab credentials and email in the config section of hash checker.py
-Set up Google Calendar API credentials (see Google Calendar Python Quickstart)
-Run the script:
+Continuously checks for new assignments or updates.
 
-bashpython "hash checker.py"
-Or open and run the Jupyter notebook:
-bashjupyter notebook Url_phising3.ipynb
+### 🔹 Change Detection
 
-📸 Screenshots
+Uses hashing to detect changes efficiently and avoid duplicate alerts.
 
-Add screenshots here
+### 🔹 Notification System
 
+* Sends email alerts
+* Optional calendar integration for reminders
 
-📄 License
-MIT License — free to use, modify, and distribute.
+### 🔹 Lightweight & Efficient
 
-👨‍💻 Author
-sanju464 — github.com/sanju464
+Designed to run periodically with minimal resource usage.
 
-Built for Kerala engineering students 🌴
+---
+
+## 🛠️ Tech Stack
+
+* Python / JavaScript *(update based on your repo)*
+* Email APIs / SMTP
+* Scheduling (cron / timers)
+* Hash-based comparison logic
+
+---
+
+## ▶️ How It Works
+
+1. Fetch assignment data from platform
+2. Compute hash of current state
+3. Compare with previous state
+4. If changed → trigger notification
+
+---
+
+## 📊 Example
+
+```text
+New Assignment Detected:
+Subject: Data Structures
+Deadline: 25 Feb
+Action: Email + Calendar Event Created
+```
+
+---
+
+## 📌 Future Improvements
+
+* Web dashboard for tracking assignments
+* Multi-platform support
+* Push notifications (mobile)
+* User authentication & personalization
+
+---
+
+## 🤝 Why This Project Matters
+
+* Demonstrates real-world automation
+* Shows system design thinking
+* Practical utility for students
+
+---
+
+## 📎 Author
+
+Sanju – Developer focused on automation and intelligent systems
+
